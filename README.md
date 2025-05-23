@@ -1,5 +1,7 @@
 Data Architecture Redesign for Company Acquisition
+
 Overview
+
 This project presents a comprehensive Enterprise Data Architecture (EDA) redesign in the context of a company acquisition. It simulates the acquisition of TrendyThreads, a digital-native e-commerce company, by FashionMart, a traditional brick-and-mortar retailer. The goal is to create a unified, scalable, and modernized data architecture for the new combined entity, FutureMart.
 
 Objectives
