@@ -23,12 +23,9 @@ This project presents a comprehensive **Enterprise Data Architecture (EDA)** red
 ## 📂 Deliverables
 
 - `FashionMartEDABluePrint.jpg`
-- `TrendyThreadsEDABluePrint.jpg`
 - `FashionMart Strengths and Areas for Improvement.pdf`
 - `TrendyThreads Strengths and Areas for Improvement.pdf`
-- `FutureMartEDABluePrint.jpg`
 - `FutureMart Strengths and Areas for Improvement.pdf`
-- `FutureMartERdiagram.jpg`
 - `SQL_Schema_Definition_Solution.txt`
 - `rdbms2nosql.txt`
 - `nosql2rdbms.txt`
