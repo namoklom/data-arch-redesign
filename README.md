@@ -62,7 +62,6 @@ A document outlining policies, roles, data lifecycle, security measures, complia
 - **SQL (MySQL)**
 - **NoSQL (MongoDB-like document models)**
 - **Shell scripting (Bash)**
-- **ER modeling tools (e.g., Draw.io, Adobe Illustrator)**
 - **PDF and TXT documentation formats**
 
 ## 🏁 Outcome
