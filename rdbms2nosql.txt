@@ -1,0 +1,37 @@
+CREATE DATABASE futuremart;
+USE futuremart;
+
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    description TEXT,
+    price DECIMAL(10, 2),
+    category VARCHAR(50),
+    stock INT
+);
+
+INSERT INTO products (product_id, name, description, price, category, stock) VALUES
+(1, 'Linen Shirt', 'Men\'s shirt made from premium linen', 299000.00, 'Apparel', 50),
+(2, 'White Sneakers', 'Unisex white sneakers', 499000.00, 'Footwear', 30),
+(3, 'Leather Watch', 'Analog watch with leather strap', 699000.00, 'Accessories', 20);
+
+import mysql.connector
+from pymongo import MongoClient
+
+mysql_conn = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="password",
+    database="futuremart"
+)
+cursor = mysql_conn.cursor(dictionary=True)
+cursor.execute("SELECT * FROM products")
+rows = cursor.fetchall()
+
+mongo_client = MongoClient("mongodb://localhost:27017/")
+mongo_db = mongo_client["futuremart"]
+mongo_collection = mongo_db["products"]
+
+mongo_collection.insert_many(rows)
+
+print("Data migration completed successfully.")

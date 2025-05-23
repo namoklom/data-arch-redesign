@@ -1,0 +1,56 @@
+import pymongo
+import pymysql
+
+mongo_client = pymongo.MongoClient("mongodb://localhost:27017/")
+mongo_db = mongo_client["trendythreads_catalog"]
+mongo_collection = mongo_db["products"]
+
+mysql_conn = pymysql.connect(
+    host="localhost",
+    user="credential_username",
+    password="credential_password",
+    database="futuremart_catalog_sql"
+)
+cursor = mysql_conn.cursor()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS Categories (
+    id VARCHAR(10) PRIMARY KEY,
+    name VARCHAR(255)
+)
+""")
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS Products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(255),
+    description TEXT,
+    price DECIMAL(10, 2),
+    sku VARCHAR(50),
+    category_id VARCHAR(10),
+    FOREIGN KEY (category_id) REFERENCES Categories(id)
+)
+""")
+
+for doc in mongo_collection.find():
+    category_id = doc["category"]["id"]
+    category_name = doc["category"]["name"]
+
+    cursor.execute("SELECT id FROM Categories WHERE id=%s", (category_id,))
+    if cursor.fetchone() is None:
+        cursor.execute("INSERT INTO Categories (id, name) VALUES (%s, %s)", (category_id, category_name))
+
+    cursor.execute("""
+    INSERT INTO Products (product_name, description, price, sku, category_id)
+    VALUES (%s, %s, %s, %s, %s)
+    """, (
+        doc["product_name"],
+        doc["description"],
+        doc["price"],
+        doc["sku"],
+        category_id
+    ))
+
+mysql_conn.commit()
+cursor.close()
+mysql_conn.close()
+mongo_client.close()

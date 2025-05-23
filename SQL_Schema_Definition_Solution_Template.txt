@@ -1,0 +1,47 @@
+CREATE TABLE Customers (
+    customer_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100) UNIQUE,
+    phone VARCHAR(20),
+    address TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Products (
+    product_id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    category VARCHAR(50),
+    description TEXT,
+    price DECIMAL(10, 2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE FulfillmentCenters (
+    center_id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    location TEXT
+);
+
+CREATE TABLE Inventory (
+    inventory_id SERIAL PRIMARY KEY,
+    product_id INT REFERENCES Products(product_id),
+    center_id INT REFERENCES FulfillmentCenters(center_id),
+    quantity INT,
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Orders (
+    order_id SERIAL PRIMARY KEY,
+    customer_id INT REFERENCES Customers(customer_id),
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    purchase_mode VARCHAR(20) CHECK (purchase_mode IN ('web', 'app', 'in-store'))
+);
+
+CREATE TABLE OrderDetails (
+    order_detail_id SERIAL PRIMARY KEY,
+    order_id INT REFERENCES Orders(order_id),
+    product_id INT REFERENCES Products(product_id),
+    quantity INT,
+    price DECIMAL(10, 2)
+);

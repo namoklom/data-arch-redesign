@@ -1,0 +1,26 @@
+CREATE TABLE Websites (
+    website_id INT AUTO_INCREMENT PRIMARY KEY,
+    url VARCHAR(255) NOT NULL,
+    site_name VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE MonitoringChecks (
+    check_id INT AUTO_INCREMENT PRIMARY KEY,
+    website_id INT NOT NULL,
+    check_time TIMESTAMP NOT NULL,
+    status_code INT,             
+    response_time_ms INT,          
+    error_message VARCHAR(255),   
+    FOREIGN KEY (website_id) REFERENCES Websites(website_id)
+);
+
+CREATE TABLE Alerts (
+    alert_id INT AUTO_INCREMENT PRIMARY KEY,
+    check_id INT NOT NULL,
+    alert_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    alert_type VARCHAR(50),     
+    alert_message TEXT,
+    is_resolved BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (check_id) REFERENCES MonitoringChecks(check_id)
+);
