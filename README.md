@@ -2,9 +2,9 @@
 
 ## 👤 Author
 
-| Name            | Role              | Contact                       |
-|-----------------|-------------------|-------------------------------|
-| Jason Emmanuel  | Project Developer | namoklom@gmail.com            |
+| Name            | Role              | LinkedIn                                      |
+|-----------------|-------------------|-----------------------------------------------|
+| Jason Emmanuel  | Project Developer | [linkedin.com/in/jasoneml](https://www.linkedin.com/in/jasoneml/) |
 
 ## 📌 Overview
 
@@ -15,7 +15,6 @@ This project presents a comprehensive **Enterprise Data Architecture (EDA)** red
 - Assess the current state of data architecture in both FashionMart and TrendyThreads.
 - Identify key strengths and areas for improvement in their respective architectures.
 - Design a future-state EDA blueprint for FutureMart that supports integrated operations, analytics, and scalability.
-- Define a unified relational schema and Entity Relationship (ER) diagram.
 - Implement RDBMS-to-NoSQL and NoSQL-to-RDBMS conversion strategies.
 - Create scripts for ETL, data analytics, and database backup.
 - Develop a data governance plan to ensure compliance, quality, and security of enterprise data.
