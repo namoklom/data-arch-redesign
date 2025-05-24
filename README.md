@@ -42,8 +42,8 @@ Visual representations of current and future data architecture components, highl
 ### 2. Strengths & Areas for Improvement
 Detailed PDF reports analyzing the maturity and limitations of each company’s data architecture, including suggestions for consolidation and enhancement.
 
-### 3. FutureMart ER Diagram & Schema
-A normalized relational schema and ER diagram representing the unified data model, suitable for operational and analytical workloads.
+### 3. FutureMart Database Schema
+A normalized relational schema representing the unified data model, suitable for operational and analytical workloads.
 
 ### 4. Data Model Conversion
 Strategies and examples for converting between RDBMS and NoSQL models, ensuring flexibility and adaptability across technology stacks.
