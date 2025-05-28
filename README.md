@@ -4,7 +4,7 @@
 
 | Name            | Role              | LinkedIn                                      |
 |-----------------|-------------------|-----------------------------------------------|
-| Jason Emmanuel  | Project Developer | [linkedin.com/in/jasoneml](https://www.linkedin.com/in/jasoneml/) |
+| Jason Emmanuel  | Data Architect | [linkedin.com/in/jasoneml](https://www.linkedin.com/in/jasoneml/) |
 
 ## 📌 Overview
 
